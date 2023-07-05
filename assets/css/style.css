@@ -1,0 +1,79 @@
+@font-face {
+	font-family: "Courier Prime", sans-serif;
+	src: url("../assets/fonts/Courier Prime");
+}
+
+:root {
+	--blue: #000080;
+	--red: #dc343b;
+	--green: #9fc131;
+	--purple: #603f83;
+	--yellow: #ffff9f;
+	--white: #fffdfd;
+	--black: ##0f0203;
+}
+
+html {
+    background-color: var(--white);
+    line-height: 1.60;
+	font-size: 18px;
+	font-weight: 400;
+	font-family: Courier Prime;
+}
+
+body {
+    color: var(--black);
+	margin: 0 15px;
+	padding-bottom: 100px;
+	display: grid;
+}
+
+main {
+	min-height: 100vh;
+	grid-row: 2 3;
+	padding-top: 13em;
+}
+
+nav#site-top-nav {
+	margin: 0.75em 0 0.5em 0;
+	text-align: center;
+	position: fixed;
+	left: 0;
+	width: 100%;
+	grid-row: 1;
+}
+
+#site-top-nav div#site-top-nav-links {
+	background-color: var(--yellow);
+}
+
+#logo {
+	max-width: 75px;
+	}
+
+nav#site-bottom-nav {
+	margin: 0.75em 0 0.5em 0;
+	background-color: var(--green);
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 5;
+	text-align: center;
+	grid-row: 4;
+}
+
+.sticky {
+	position: fixed;
+	margin: 0.75em 0 0.5em 0;
+	text-align: center;
+}
+
+.footer {
+	width: 100%;
+	grid-row: 2 3;
+}
+
+section#feature {
+	background-color: var(--red);
+	}
