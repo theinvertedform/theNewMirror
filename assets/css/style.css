@@ -1,6 +1,27 @@
+/* base elements */
+
 @font-face {
-	font-family: "Courier Prime", sans-serif;
-	src: url("../assets/fonts/Courier Prime");
+	font-family: "Source Code Pro", monospace;
+	font-weight: 400;
+	src: url("/assets/fonts/SourceCodePro-Regular.otf") format(otf),
+}
+
+@font-face {
+	font-family: "Source Serif 4", serif;
+	font-weight: 400;
+	src: url("/assets/fonts/SourceSerif4-Regular.otf") format(otf),
+}
+
+@font-face {
+	font-family: "Source Serif 4 Caption";
+	font-weight: 400;
+	src: url("/assets/fonts/SourceSerif4Caption-Regular.otf") format(otf),
+}
+
+@font-face {
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 400;
+	src: url("/assets/fonts/SourceSans3-Regular.otf") format(otf),
 }
 
 :root {
@@ -11,36 +32,34 @@
 	--yellow: #ffff9f;
 	--white: #fffdfd;
 	--black: ##0f0203;
+	--silver: #a6a9aa;
 }
 
 html {
-    background-color: var(--white);
+    background-color: var(--silver);
     line-height: 1.60;
 	font-size: 18px;
 	font-weight: 400;
-	font-family: Courier Prime;
+	font-family: "Source Code Pro";
 }
 
 body {
     color: var(--black);
-	margin: 0 15px;
+    background-color: var(--white);
+	margin: 1rem;
 	padding-bottom: 100px;
-	display: grid;
 }
 
-main {
-	min-height: 100vh;
-	grid-row: 2 3;
-	padding-top: 13em;
-}
+/* main layout, top to bottom */
+
+header.site-header {
+	padding-bottom: 15rem;
+	}
 
 nav#site-top-nav {
-	margin: 0.75em 0 0.5em 0;
+	margin: 1rem;
 	text-align: center;
-	position: fixed;
-	left: 0;
-	width: 100%;
-	grid-row: 1;
+	font-size: 1rem;
 }
 
 #site-top-nav div#site-top-nav-links {
@@ -50,6 +69,119 @@ nav#site-top-nav {
 #logo {
 	max-width: 75px;
 	}
+
+main {
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: minmax(0.5rem, 1fr) minmax(15ch, 75ch) minmax(0.5rem, 1fr);
+	grid-column-gap: 2em;
+	grid-row-gap: 0.5em;
+}
+
+section#feature {
+	}
+
+section.category-section {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	justify-items: center;
+	}
+
+h2.post-list-heading {
+	background-color: var(--red);
+	grid-column: 1/-1;
+	grid-row: 1;
+	text-align: center;
+	padding: 0.5rem 1rem;
+}
+
+img.post-image {
+	max-width: 100%;
+	}
+
+div.post-meta {
+	background-color: var(--red);
+    line-height: 1.25;
+	font-size: 1.5rem;
+	}
+
+section.category-section p {
+	background-color: var(--red);
+    line-height: 1.25;
+	font-size: 1.5rem;
+	font-weight: 700;
+	padding: 0.5rem 1rem;
+	}
+
+li.post-list {
+	grid-row: 1 3;
+	grid-column: 2;
+	}
+
+article.post {
+	grid-column: 2;
+	}
+
+article.index {
+	grid-column: 1/-1;
+	text-align: justify;
+	font-size: 500%;
+	font-weight: 700;
+	line-height: 1;
+	}
+
+header.post-header {
+	text-align: center;
+}
+
+h2.post-category {
+	font-family: "Source Serif 4";
+	font-style: italic;
+	font-weight: 300;
+	font-size: 22px;
+	margin: 0;
+	letter-spacing: 1px;
+	}
+
+h2.post-category a {
+	text-decoration: none;
+	}
+
+h1.post-title {
+	margin-top: 0;
+	font-size: 300%;
+	overflow-wrap: break-word;
+	}
+
+div.post-content {
+	font-family: "Source Serif 4";
+	line-height: 1.45;
+	margin-top: 2rem;
+	}
+
+div.footnotes::before {
+	content: "Footnotes";
+	margin: 0.75em 0;
+	font-variant: small-caps;
+	font-size: 2em;
+	line-height: 1.15;
+	font-weight: 700;
+	letter-spacing: -1px;
+
+}
+
+div.footnotes {
+	border-top: 2px solid;
+	margin-top: 1.75rem;
+	}
+
+footer.site-footer {
+	width: 100%;
+	display: grid;
+	grid-template-columns: minmax(0.5rem, 1fr) minmax(15ch, 65ch) minmax(0.5rem, 1fr);
+	grid-column-gap: 2em;
+	grid-row-gap: 0.5em;
+}
 
 nav#site-bottom-nav {
 	margin: 0.75em 0 0.5em 0;
@@ -61,19 +193,48 @@ nav#site-bottom-nav {
 	z-index: 5;
 	text-align: center;
 	grid-row: 4;
+	font-size: 1rem;
 }
 
 .sticky {
 	position: fixed;
-	margin: 0.75em 0 0.5em 0;
+	margin: 1rem;
 	text-align: center;
 }
 
-.footer {
-	width: 100%;
-	grid-row: 2 3;
-}
+/* misc elements */
 
-section#feature {
-	background-color: var(--red);
+ol, ul {
+	list-style: none outside none;
+	}
+
+li {
+	list-style: square;
+	}
+
+li li {
+	list-style: circle;
+	}
+
+p {
+	margin: 0;
+	}
+
+p + p {
+	text-indent: 1.75em;
+	margin-top: 0;
+	}
+
+sup {
+	font-family: "Source Serif 4 Caption";
+	}
+
+span.origdate::after {
+	content: "/";
+	font-weight: 700;
+	}
+
+span.page-source::before {
+	content: "~";
+	font-weight: 700;
 	}

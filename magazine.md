@@ -1,23 +1,26 @@
 ---
 layout: page
-title: Magazine
+title: The New Mirror
 permalink: /magazine
 ---
 
 {% assign posts = site.posts %}
 
-<section id="feature">
-<h1> Features </h1>
-    {% for post in site.categories.feature | sort: 'date' | limit: 1 %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+<section class="category-section" id="feature">
+    {% for post in site.categories.feature limit: 1 %}
+<h2 class="post-list-heading"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+	  <img class="post-image" src="{{ post.image }}">
+	  {{ post.excerpt }}
     {% endfor %}
 </section>
 
+<hr >
+
 {% for category in site.categories %}
-{% unless category == "feature" %}
+{% unless category contains "feature" %}
 <section id="{{ category | first }}">
-  <li><a name="{{ category | first }}">{{ category | first }}</a>
-    <ul>
+  <li class="category-list"><a name="{{ category | first }}">{{ category | first }}</a>
+    <ul class="post-list">
     {% for post in category.last %}
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
@@ -26,6 +29,8 @@ permalink: /magazine
 </section>
 {% endunless %}
 {% endfor %}
+
+<hr >
 
 {%- if posts.size > 0 -%}
 {%- if page.list_title -%}
